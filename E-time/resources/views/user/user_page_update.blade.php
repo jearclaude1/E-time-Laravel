@@ -22,9 +22,9 @@
             <label>User</label>
         </div>
         <div class="right_content">
-<form action='/update/{{$update->id}}/update' method="put">
+<form action='/update/{{$update->id}}' method="POST">
     @csrf
-    @method('PUT')
+
     <input type="text" name="name" value="{{$update->username}}" placeholder="user_name">
     <input type="text" name="telephone" value="{{$update->telephone}}" placeholder="Course_name">
     <input type="text" name="status" value="{{$update->status}}" placeholder="status">

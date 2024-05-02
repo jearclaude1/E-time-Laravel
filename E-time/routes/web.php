@@ -27,7 +27,7 @@ Route::post('/user',[userController::class,'store'])->name('user.store');
 Route::get('user/user_page',[userController::class,'user_page'])->name('user.create');
 Route::get('user_page/{id}/destroy',[userController::class,'destroy']);
 Route::get('user_page/{id}/update',[userController::class,'update']);
-Route::put('/update/{id}/update',[userController::class,'updated']);
+Route::post('/update/{id}',[userController::class,'updated']);
 
 // period activate 
 Route::post('/period',[PeriodController::class,'store'])->name('period.store');
