@@ -35,6 +35,28 @@ class userController extends Controller
     return view('user.user_page_update',compact('update'));
   }
   public function updated(request $request, int $id){
-       dd($request);
+       
+    $request->validate([
+      'name' => 'required|string|max:255',
+      'telephone' => 'required|string|max:255',
+      'status' => 'required|string|max:255',
+      'role' => 'required|string|max:255',
+  ]);
+
+  // Find the user by ID
+  $user = Users::findOrFail($id);
+
+  // Update the user's attributes
+  $user->name = $request->input('name');
+  $user->telephone = $request->input('telephone');
+  $user->status = $request->input('status');
+  $user->role = $request->input('role');
+
+  // Save the updated user
+  $user->save();
+
+  // Redirect back with success message
+  return redirect('user.user_page')->with('success', 'User updated successfully');
+
   }
 }

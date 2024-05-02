@@ -22,18 +22,17 @@
             <label>User</label>
         </div>
         <div class="right_content">
-        <form action='/update/.{{$update->id}}./update' method="put">
-        @csrf
-        @method('POST')
-                      <input type="text" name="name" value="{{$update->username}}" placeholder="user_name">
-                      <input type="text" name="telephone" value="{{$update->telephone}}" placeholder="Course_name">
-                      <input type="text" name="stutus" value="{{$update->stutus}}" placeholder="stutus">
-                      <input type="text" name="role" value="{{$update->role}}" placeholder="Role">
-                      <input type="submit" name="save" value="save" >
-            </form>
+<form action='/update/{{$update->id}}/update' method="put">
+    @csrf
+    @method('PUT')
+    <input type="text" name="name" value="{{$update->username}}" placeholder="user_name">
+    <input type="text" name="telephone" value="{{$update->telephone}}" placeholder="Course_name">
+    <input type="text" name="status" value="{{$update->status}}" placeholder="status">
+    <input type="text" name="role" value="{{$update->role}}" placeholder="Role">
+    <input type="submit" name="save" value="Save">
+</form>
         </div>
- <?php
- ?>
+
     </div>
 </body>
 </html>
