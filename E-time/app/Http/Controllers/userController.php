@@ -35,21 +35,15 @@ class userController extends Controller
     return view('user.user_page_update',compact('update'));
   }
   public function updated(request $request, int $id){
-       
-    $request->validate([
-            'username' => 'required|string|max:255',
-            'telephone' => 'required|string|max:255',
-            'status' => 'required|string|max:255',
-            'role' => 'required|string|max:255',
-        ]);
+
         $user = Users::findOrFail($id);
 
-        $user->name = $request->username;
+        $user->username = $request->username;
         $user->telephone = $request->telephone;
-        $user->status = $request->status;
+        $user->stutus = $request->status;
         $user->role = $request->role;
-        $user->save();
-        return redirect()->back()->with('success', 'User updated successfully');
+        $user->update();
+        return redirect()->route('user.create')->with('success', 'User updated successfully');
   
   }
 }

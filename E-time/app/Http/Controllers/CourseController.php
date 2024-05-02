@@ -24,4 +24,12 @@ public function destroy(int $id){
     $delete->delete();
     return redirect()->route('course.create');
 }
+
+public function updated(request $request, int $id){
+
+    $user = course::findOrFail($id);
+    $user->name=$request->name;
+    $user->update();
+    return redirect()->route('course.create')->with('success', 'User updated successfully');
+}
 }

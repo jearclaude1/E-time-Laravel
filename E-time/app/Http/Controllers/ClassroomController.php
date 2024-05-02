@@ -27,4 +27,12 @@ class ClassroomController extends Controller
     $delete->delete();
     return redirect()->route('class.create');
   }
+  public function updated(request $request, int $id){
+
+    $user = classroom::findOrFail($id);
+    $user->name=$request->name;
+    $user->detail=$request->detail;
+    $user->update();
+    return redirect()->route('class.create')->with('success', 'User updated successfully');
+}
 }
