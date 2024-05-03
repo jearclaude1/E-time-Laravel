@@ -38,12 +38,17 @@ Route::get('/period/period',[PeriodController::class,'period_page']);
 Route::post('/class',[ClassroomController::class,'store'])->name('class.store');
 Route::get('/class/class_page',[ClassroomController::class,'Class'])->name('class.create');
 route::get('class/{id}/destroy',[ClassroomController::class,'destroy']);
+Route::get('class/{id}/update',[ClassroomController::class,'update']);
+Route::post('/update/{id}',[ClassroomController::class,'updated']);
 
 
 // course
 Route::post('/course',[CourseController::class,'store'])->name('course.store');
 Route::get('/course/course_page',[CourseController::class,'Course'])->name('course.create');
 route::get('/course/{id}/destroy',[CourseController::class,'destroy']);
+Route::get('course/{id}/update',[CourseController::class,'update']);
+Route::post('/update/{id}',[CourseController::class,'updated']);
 
-
+// time_table
+Route::get('/timetable/time_table_page',[CourseController::class,'Course'])->name('course.create');
 ?>

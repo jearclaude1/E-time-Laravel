@@ -25,6 +25,12 @@ public function destroy(int $id){
     return redirect()->route('course.create');
 }
 
+// class updation 
+public function update(int $id){
+    $update = course::findOrFail($id);
+    return view('course.course_page_update',compact('update'));
+}
+
 public function updated(request $request, int $id){
 
     $user = course::findOrFail($id);
