@@ -31,7 +31,7 @@ Route::post('/update/{id}',[userController::class,'updated']);
 
 // period activate 
 Route::post('/period',[PeriodController::class,'store'])->name('period.store');
-Route::get('/period/period',[PeriodController::class,'period_page']);
+Route::get('/period/period',[PeriodController::class,'period_page'])->name('period.create');
 
 
 // class
